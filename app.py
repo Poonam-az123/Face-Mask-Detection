@@ -26,15 +26,11 @@ if "open_camera" not in st.session_state:
 
 
 # Keras model load करा
-    model = tf.keras.models.load_model("mask_final.keras")
-
-# Convert to TFLite
-    converter = tf.lite.TFLiteConverter.from_keras_model(model)
-    tflite_model = converter.convert()
-
-# Save
-    with open("mask_model.tflite", "wb") as f:
-        f.write(tflite_model)
+try:
+    model = load_model("mask_final.keras")
+except:
+    st.error("❌ Model file 'mask_final.keras' not found.")
+    st.stop()
 
 
 # ---------------- CUSTOM CSS ---------------- #
