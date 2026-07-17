@@ -26,7 +26,7 @@ if "open_camera" not in st.session_state:
 
 
 # Keras model load करा
-    model = tf.keras.models.load_model("face_mask_model.keras")
+    model = tf.keras.models.load_model("mask_final.keras")
 
 # Convert to TFLite
     converter = tf.lite.TFLiteConverter.from_keras_model(model)
